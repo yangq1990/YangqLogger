@@ -7,4 +7,4 @@ YangqLog
 
 Logger.info(clsName, msg);
 
-Logger.error(clsName, msg, detail);
+Logger.error(clsName, msg, detail); //detail默认值为""
