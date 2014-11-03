@@ -40,7 +40,18 @@ package com.xinguoedu.utils
         /** Log a message to the console. **/
         private static function outputlog(level : String, message : String) : void 
 		{
-			ExternalInterface.available ?  ExternalInterface.call('console.log', level + message) : trace(level + message);				
+			if(ExternalInterface.available)
+			{
+				try
+				{
+					ExternalInterface.call('console.log', level + message)
+				}
+				catch(err:SecurityError) {}
+			}
+			else
+			{
+				trace(level + message);
+			}
         }
     }
 }
